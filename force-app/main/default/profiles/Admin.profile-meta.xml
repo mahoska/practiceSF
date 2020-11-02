@@ -5,16 +5,28 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
+     <classAccesses>
+        <apexClass>L_CarSearchController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>CreateData</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CreateDataTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>false</custom>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Car_Experience__c.Car__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Car_Experience__c.Experience__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -54,6 +66,9 @@
     <layoutAssignments>
         <layout>Car__c-Car Layout</layout>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>Car_Experience__c-Car Experience Layout</layout>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -81,6 +96,10 @@
         <object>Car__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+     <tabVisibilities>
+        <tab>Rent_a_Car</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Car_Experience__c</tab>
         <visibility>DefaultOn</visibility>
