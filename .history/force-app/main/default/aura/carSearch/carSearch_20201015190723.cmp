@@ -1,0 +1,55 @@
+<!--
+  @description       : 
+  @author            : Anna Makhovskaya
+  @group             : 
+  @last modified on  : 10-15-2020
+  @last modified by  : Anna Makhovskaya
+  Modifications Log 
+  Ver   Date         Author             Modification
+  1.0   10-15-2020   Anna Makhovskaya   Initial Version
+-->
+<aura:component implements="force:appHostable" controller = "L_CarSearchController">
+
+    <!-- Handle component initialization in a client-side controller -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+        <aura:attribute name="title" type="String" default="Search Your Car"/>
+        <aura:attribute name="carTypesList" type="Car_Type__c[]" />
+        
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_2-of-3">
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                      <span>1</span>
+                    </div>
+                    <div class="slds-col">
+                      <span>2</span>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+              <span>2</span>
+            </div>
+          </div>
+        
+        
+
+
+
+        <lightning:card>
+            <aura:set attribute="title">
+                <lightning:icon iconName="utility:connected_apps" size="small"/>
+                {! v.title }
+            </aura:set>
+            <aura:set attribute="body" >
+                <lightning:select aura:id="select" name="select" label="Select a pie" onchange="{! c.onChange }">
+                    <option value="">choose one...</option>
+                    <option value="apple">apple</option>
+                    <option value="pumpkin">pumpkin</option>
+                    <option value="cherry">cherry</option>
+                    <option value="blueberry">blueberry</option>
+                    <option value="pickle">pickle</option>
+                </lightning:select>
+        </aura:set>
+        </lightning:card>
+</aura:component>	

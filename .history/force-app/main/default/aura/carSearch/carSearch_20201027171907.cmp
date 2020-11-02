@@ -1,0 +1,61 @@
+<!--
+  @description       : 
+  @author            : Anna Makhovskaya
+  @group             : 
+  @last modified on  : 10-27-2020
+  @last modified by  : Anna Makhovskaya
+  Modifications Log 
+  Ver   Date         Author             Modification
+  1.0   10-15-2020   Anna Makhovskaya   Initial Version
+-->
+<aura:component implements="force:appHostable" controller = "L_CarSearchController">
+
+    <!-- Handle component initialization in a client-side controller -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+        <aura:attribute name="title" type="String" default="Search Your Car"/>
+        <aura:attribute name="carTypesList" type="Car_Type__c[]" />
+        <aura:attribute name="selectedCarType" type="Car_Type__c" />
+        
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_2-of-3">
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col slds-p-bottom_medium">
+                        <lightning:card>
+                            <aura:set attribute="title">
+                                <lightning:icon iconName="utility:connected_apps" size="small"/>
+                                {! v.title }
+                            </aura:set>
+                            <aura:set attribute="body" >
+                                <div class="slds-align_absolute-center" style="width: 70%;">
+                                    <lightning:select aura:id="select" name="select" label="" onchange="{! c.handleSelectCarType }">
+                                        <option value="">choose one...</option>
+                                        <aura:iteration items="{!v.carTypesList}" var="carType">
+                                            <option text="{!carType.Name}" value="{!carType.Id}"/>
+                                        </aura:iteration>
+                                    </lightning:select>
+                                </div>
+                        </aura:set>
+                       
+                        </lightning:card>
+                    </div>
+                    <div class="slds-col">
+                        <lightning:card>
+                            <aura:if isTrue="{!v.selectedCarType}">
+                                <c:carSearchResult carType = "{!v.selectedCarType}" />
+                            </aura:if>
+                        </lightning:card>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <lightning:card></lightning:card>
+            </div>
+          </div>
+        
+        
+
+
+
+        
+</aura:component>	
