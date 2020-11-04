@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Build_Year_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT ( ISBLANK (Build_Year__c ) ) &amp;&amp;(NOT ( ISNUMBER (Build_Year__c  ) )
+||LEN ( Build_Year__c ) &lt; 4 || VALUE(LEFT(Build_Year__c, 1)) == 0)</errorConditionFormula>
+    <errorMessage>Build Year must be a non-empty four-digit numeric field</errorMessage>
+</ValidationRule>
