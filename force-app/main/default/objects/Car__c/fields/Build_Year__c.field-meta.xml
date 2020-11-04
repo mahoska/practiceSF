@@ -3,11 +3,10 @@
     <fullName>Build_Year__c</fullName>
     <externalId>false</externalId>
     <label>Build Year</label>
-    <precision>4</precision>
+    <length>4</length>
     <required>true</required>
-    <scale>0</scale>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
-    <type>Number</type>
+    <type>Text</type>
     <unique>false</unique>
 </CustomField>

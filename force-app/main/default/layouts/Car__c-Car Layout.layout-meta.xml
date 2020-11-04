@@ -21,11 +21,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Build_Year__c</field>
+                <field>Per_Day_Rent__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Per_Day_Rent__c</field>
+                <field>Build_Year__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
