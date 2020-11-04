@@ -2,7 +2,7 @@
   @description       : 
   @author            : Anna Makhovskaya
   @group             : 
-  @last modified on  : 10-30-2020
+  @last modified on  : 11-04-2020
   @last modified by  : Anna Makhovskaya
   Modifications Log 
   Ver   Date         Author             Modification
@@ -11,6 +11,7 @@
 <aura:component implements="force:appHostable" >
 
         <aura:attribute name="selectedCarTypeId" type="Car_Type__c" default=""/>
+        <aura:attribute name="carFound" type="Boolean" default="False"/>
 
         <aura:handler name="strCompEvt" event="c:EVENT_StringCmp" action="{!c.handleStrCompEvt}"/>
         
@@ -24,13 +25,15 @@
                     </div>
                     <div class="slds-col">
                   
-                                <c:carSearchResult carTypeId ="{!v.selectedCarTypeId}" />                         
+                        <c:carSearchResult carTypeId ="{!v.selectedCarTypeId}" />                         
 
                     </div>
                 </div>
             </div>
             <div class="slds-col slds-size_1-of-3">
-                <lightning:card></lightning:card>
+                <aura:if isTrue="{v.carFound}">
+                    <c:carDetails />
+                </aura:if>
             </div>
           </div>
 </aura:component>	

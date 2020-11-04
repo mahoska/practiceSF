@@ -1,0 +1,25 @@
+<!--
+  @description       : 
+  @author            : Anna Makhovskaya
+  @group             : 
+  @last modified on  : 11-04-2020
+  @last modified by  : Anna Makhovskaya
+  Modifications Log 
+  Ver   Date         Author             Modification
+  1.0   11-04-2020   Anna Makhovskaya   Initial Version
+-->
+<aura:component>
+    <lightning:card>
+        <lightning:tabset>
+            <lightning:tab label="Car Details" onactive="{! c.handleTabActive }"  id="carDetails">
+                <c:carDetail />
+            </lightning:tab>
+            <lightning:tab label="Add Car Experience" onactive="{! c.handleTabActive }"  id="addCarExperience">
+                <c:addCarExperience />
+            </lightning:tab>
+            <lightning:tab label="View Experience" onactive="{! c.handleTabActive }"  id="viewCarExperience">
+                <c:viewCarExperience />
+            </lightning:tab>
+        </lightning:tabset>
+    </lightning:card>
+</aura:component>	
