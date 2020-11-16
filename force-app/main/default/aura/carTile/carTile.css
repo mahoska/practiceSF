@@ -5,3 +5,27 @@
     pointer-events: none;
 }
  
+
+
+.THIS .tile {
+    padding:8px;
+    background-color: white;
+    border-radius: 0.25rem;
+}
+
+.THIS a {
+    color:inherit;
+}
+
+ 
+.THIS .title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.THIS .selected {
+border-width: medium;
+border-radius: 4px;
+border-color: royalblue;
+border-style: solid;
+}

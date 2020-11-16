@@ -2,7 +2,7 @@
   @description       : 
   @author            : Anna Makhovskaya
   @group             : 
-  @last modified on  : 10-30-2020
+  @last modified on  : 11-06-2020
   @last modified by  : Anna Makhovskaya
   Modifications Log 
   Ver   Date         Author             Modification
@@ -11,14 +11,17 @@
 <aura:component>
     <aura:attribute name="car" type="Car__c" />
 
+    <aura:registerEvent name="setSelectedCarId" type="c:EVENT_StringCmp"/>
 
-        <div>
-            <img src="{!v.car.Picture__c}" class="car slds-align_absolute-center" alt="Car picture"/>
-            <div>
-                <p class="title slds-align_absolute-center">
-                    {!v.car.Name}
-                </p>
+        <a onclick="{! c.handleCarSelect}">
+
+            <div id="{!v.car.Id}">
+                <img src="{!v.car.Picture__c}" class="car slds-align_absolute-center" alt="Car picture"/>
+                <div>
+                    <p class="title slds-align_absolute-center">
+                        {!v.car.Name}
+                    </p>
+                </div>
             </div>
-        </div>
-
+        </a>    
 </aura:component>	

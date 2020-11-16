@@ -1,2 +1,47 @@
-.THIS {
+.THIS.c-container {
+    border: 1px solid #d8dde6;
+    margin: 20px 0 20px 0;
+}
+.THIS .header-column {
+    padding: 0 2rem;
+}
+.THIS .field-title {
+    font-size: .75rem;
+    line-height: 1.25;
+    color: #54698d;
+    margin-bottom: .25rem;
+}
+
+.THIS .label{
+    font-weight:  bold;
+    display: block;
+}
+
+.THIS .carproperty{
+    margin-bottom: 3px;
+}
+
+.THIS .imageview{
+    background-repeat:  no-repeat;
+    background-size: contain;
+    height: 200px;
+    margin: 2px;
+}
+
+.THIS .car{
+    border-radius: 5px;
+}
+
+.THIS .mytitle .slds-form-element .slds-form-element__control .slds-form-element__static{
+    margin-left:  10px;
+    position:absolute;
+    margin-top:-30pt;
+    color:rgb(35, 3, 175);
+    font-weight: bold;
+    font-size: 15pt;
+}
+
+.THIS .slds-form-element .slds-form-element__label{
+    font-size: 10pt;
+    font-weight: bold;
 }

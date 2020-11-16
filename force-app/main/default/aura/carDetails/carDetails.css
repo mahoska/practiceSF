@@ -1,2 +1,20 @@
-.THIS {
+
+.THIS  .label{
+    font-weight:  bold;
+    display: block;
+}
+
+.THIS  .carproperty{
+    margin-bottom: 3px;
+}
+
+.THIS  .imageview{
+    background-repeat:  no-repeat;
+    background-size: contain;
+    height: 200px;
+    margin: 2px;
+}
+
+.THIS  .car{
+    border-radius: 5px;
 }

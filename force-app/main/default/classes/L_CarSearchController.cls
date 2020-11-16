@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : Anna Makhovskaya
  * @group             : 
- * @last modified on  : 10-30-2020
+ * @last modified on  : 11-06-2020
  * @last modified by  : Anna Makhovskaya
  * Modifications Log 
  * Ver   Date         Author             Modification
@@ -22,9 +22,9 @@ public with sharing class L_CarSearchController {
             List<Car__c> cars = new List<Car__c>();
             System.debug('---->'+ carTypeId);
             if(String.isBlank(carTypeId)){
-                cars =  [SELECT Id, Name, Image__c, Picture__c FROM Car__c LIMIT 1000];
+                cars =  [SELECT Id, Name, Image__c, Picture__c, Build_Year__c, Car_Type__r.Name, Contact__r.Name, Description__c, Per_Day_Rent__c, Mileage__c, Contact__c, Available_For_Rent__c FROM Car__c LIMIT 1000];
             }else{
-                cars =  [SELECT Id, Name, Image__c, Picture__c FROM Car__c  WHERE Car_Type__c =:carTypeId  LIMIT 1000];  
+                cars =  [SELECT Id, Name, Image__c, Picture__c, Build_Year__c, Car_Type__r.Name, Contact__r.Name, Description__c, Per_Day_Rent__c, Mileage__c, Contact__c, Available_For_Rent__c FROM Car__c  WHERE Car_Type__c =:carTypeId  LIMIT 1000];  
             }
             System.debug('---->'+ cars);
             return cars;

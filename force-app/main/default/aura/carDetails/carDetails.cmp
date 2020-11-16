@@ -2,23 +2,26 @@
   @description       : 
   @author            : Anna Makhovskaya
   @group             : 
-  @last modified on  : 11-04-2020
+  @last modified on  : 11-06-2020
   @last modified by  : Anna Makhovskaya
   Modifications Log 
   Ver   Date         Author             Modification
   1.0   11-04-2020   Anna Makhovskaya   Initial Version
 -->
 <aura:component>
+    <aura:attribute name="carId" type="Car__c" default=""/>
+    <aura:attribute name="activeTabId" type="String" default="carDetails"/>
+
     <lightning:card>
         <lightning:tabset>
-            <lightning:tab label="Car Details" onactive="{! c.handleTabActive }"  id="carDetails">
-                <c:carDetail />
+            <lightning:tab label="Car Details">
+                <c:carDetail carId = "{!v.carId}"/>
             </lightning:tab>
-            <lightning:tab label="Add Car Experience" onactive="{! c.handleTabActive }"  id="addCarExperience">
-                <c:addCarExperience />
+            <lightning:tab label="Add Car Experience">
+                <c:addCarExperience carId = "{!v.carId}"/>
             </lightning:tab>
-            <lightning:tab label="View Experience" onactive="{! c.handleTabActive }"  id="viewCarExperience">
-                <c:viewCarExperience />
+            <lightning:tab label="View Experience">
+                <c:viewCarExperience carId = "{!v.carId}"/>
             </lightning:tab>
         </lightning:tabset>
     </lightning:card>
