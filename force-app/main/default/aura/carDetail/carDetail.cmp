@@ -2,49 +2,57 @@
   @description       : 
   @author            : Anna Makhovskaya
   @group             : 
-  @last modified on  : 11-13-2020
+  @last modified on  : 11-16-2020
   @last modified by  : Anna Makhovskaya
   Modifications Log 
   Ver   Date         Author             Modification
   1.0   11-04-2020   Anna Makhovskaya   Initial Version
 -->
-<aura:component>
+<aura:component controller = "L_CarSearchController">
   <aura:attribute name="carId" type="Car__c" default=""/>
+  <aura:attribute name="car" type="Car__c" default=""/>
+  <aura:attribute name="isCarFound" type="Boolean" default="false"/>
 
-  <aura:attribute name="record" type="Object"/>
-  <aura:attribute name="car" type="Car__c"/>
-  <aura:attribute name="recordError" type="String"/>
-  <aura:attribute name="simpleRecord" type="Object"/>
-
-  <force:recordData aura:id="recordLoader"
-    fields="Name,Picture__c,Type__c"
-    recordId="{!v.carId}"
-    targetError="{!v.recordError}"
-    targetRecord="{!v.record}"
-    targetFields ="{!v.simpleRecord}"
-    mode="VIEW"
-
-   
-    />
-
-  <!-- Display a lightning card with details about the record -->
-  <div class="Record Details"> 
-  <lightning:card iconName="standard:account" title="{!v.simpleRecord.Name}" >
-      <div class="slds-p-horizontal--small">
-          <p class="slds-text-heading--small">
-              <lightning:formattedText title="Billing City" value="{!v.simpleRecord.Type__c}" /></p>
-          <p class="slds-text-heading--small">
-             </p>
-
-              <img src="{!v.simpleRecord.Picture__c}" class="car slds-align_absolute-center" alt="Car Picture" />
-      </div>
-  </lightning:card>
-  </div>
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+  <aura:handler name="change" value="{!v.carId}" action="{!c.handleCarIdChange}"/>
 
 
+  <aura:if isTrue="{!v.isCarFound}">
+    <lightning:card title="{!v.car.Name}" iconName="utility:setup_assistant_guide">
+      <aura:set attribute="actions">
+        <lightning:button label="Full Details" onclick="{!c.fullDetailsHandler}"></lightning:button>
+      </aura:set>
 
-
-
-
+      <lightning:layout multipleRows="true">
+          <lightning:layoutItem  size="12" smallDeviceSize="6" largeDeviceSize="6">
+              <div class="slds-p-horizontal_small">
+                  <div class="carproperty">
+                      <span class="label">Owner Name:</span>
+                      <lightning:formattedText value="{!v.car.Contact__r.Name}"></lightning:formattedText>
+                  </div>
+                  <div class="carproperty">
+                      <span class="label">Type:</span>
+                      <lightning:formattedText value="{!v.car.Car_Type__r.Name}"></lightning:formattedText>
+                  </div>
+                  <div class="carproperty">
+                      <span class="label">Build Year:</span>
+                      <lightning:formattedText value="{!v.car.Build_Year__c}"></lightning:formattedText>
+                  </div>
+                  <div class="carproperty">
+                      <span class="label">Per Day Rent:</span>
+                      <lightning:formattedNumber value="{!v.car.Per_Day_Rent__c}" ></lightning:formattedNumber>
+                  </div>
+                  <div class="carproperty">
+                      <span class="label">Mileage:</span>
+                      <lightning:formattedNumber value="{!v.car.Mileage__c}"></lightning:formattedNumber>
+                  </div>
+              </div>
+          </lightning:layoutItem >
+          <lightning:layoutItem  size="12" smallDeviceSize="6" largeDeviceSize="6">
+              <img src="{!v.car.Picture__c}" class="car slds-align_absolute-center" alt="Car Picture" />
+          </lightning:layoutItem >
+        </lightning:layout>
+      </lightning:card>
+    </aura:if>
   
 </aura:component>	

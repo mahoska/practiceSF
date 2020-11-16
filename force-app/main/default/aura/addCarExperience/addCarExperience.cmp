@@ -2,7 +2,7 @@
   @description       : 
   @author            : Anna Makhovskaya
   @group             : 
-  @last modified on  : 11-06-2020
+  @last modified on  : 11-16-2020
   @last modified by  : Anna Makhovskaya
   Modifications Log 
   Ver   Date         Author             Modification
@@ -10,5 +10,7 @@
 -->
 <aura:component>
   <aura:attribute name="carId" type="Car__c" default=""/>
-  222
+  
+
+  
 </aura:component>	

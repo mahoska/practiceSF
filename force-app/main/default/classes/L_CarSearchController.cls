@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : Anna Makhovskaya
  * @group             : 
- * @last modified on  : 11-06-2020
+ * @last modified on  : 11-16-2020
  * @last modified by  : Anna Makhovskaya
  * Modifications Log 
  * Ver   Date         Author             Modification
@@ -20,17 +20,27 @@ public with sharing class L_CarSearchController {
     public static List<Car__c> getCarsByTypeId(String carTypeId){
         try {
             List<Car__c> cars = new List<Car__c>();
-            System.debug('---->'+ carTypeId);
+ 
             if(String.isBlank(carTypeId)){
-                cars =  [SELECT Id, Name, Image__c, Picture__c, Build_Year__c, Car_Type__r.Name, Contact__r.Name, Description__c, Per_Day_Rent__c, Mileage__c, Contact__c, Available_For_Rent__c FROM Car__c LIMIT 1000];
+                cars =  [SELECT Id, Name, Image__c, Picture__c FROM Car__c LIMIT 1000];
             }else{
-                cars =  [SELECT Id, Name, Image__c, Picture__c, Build_Year__c, Car_Type__r.Name, Contact__r.Name, Description__c, Per_Day_Rent__c, Mileage__c, Contact__c, Available_For_Rent__c FROM Car__c  WHERE Car_Type__c =:carTypeId  LIMIT 1000];  
+                cars =  [SELECT Id, Name, Image__c, Picture__c FROM Car__c  WHERE Car_Type__c =:carTypeId  LIMIT 1000];  
             }
-            System.debug('---->'+ cars);
+
             return cars;
 
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    @AuraEnabled
+    public static Car__c getCarById(Id carId){
+        try {
+            return  [SELECT  Id, Name, Image__c, Picture__c, Build_Year__c, Car_Type__r.Name, Contact__r.Name, Description__c, Per_Day_Rent__c, Mileage__c, Contact__c, Available_For_Rent__c FROM Car__c WHERE Id = :carId LIMIT 1];
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
 }

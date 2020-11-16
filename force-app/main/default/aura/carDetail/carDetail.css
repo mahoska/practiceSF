@@ -18,7 +18,7 @@
 }
 
 .THIS .carproperty{
-    margin-bottom: 3px;
+    margin-bottom: 8px;
 }
 
 .THIS .imageview{
@@ -32,16 +32,3 @@
     border-radius: 5px;
 }
 
-.THIS .mytitle .slds-form-element .slds-form-element__control .slds-form-element__static{
-    margin-left:  10px;
-    position:absolute;
-    margin-top:-30pt;
-    color:rgb(35, 3, 175);
-    font-weight: bold;
-    font-size: 15pt;
-}
-
-.THIS .slds-form-element .slds-form-element__label{
-    font-size: 10pt;
-    font-weight: bold;
-}
